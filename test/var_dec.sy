@@ -1,0 +1,8 @@
+int main(){
+    int one_bin = 0b1, one_bin_cap = 0B1;
+    int one_ten = 0t1, one_ten_cap = 0T1;
+    int one_oct = 01, one_oct_cup = 0o1, one_oct_cap = 0O1;
+    int one_dec = 1, one_dec_cup = 0d1, one_dec_cap = 0D1;
+    int one_hex = 0x1, one_hex_cap = 0X1;
+    return 0;
+}
