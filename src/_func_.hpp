@@ -5,18 +5,15 @@
 #include <memory>
 #include <string>
 #include "_const_.hpp"
+#include "_ast_.hpp"
 
 #define RED_STR(str) ("\033[1;31m"+str+"\033[0m")
 
-extern int yyparse(std::unique_ptr<std::string>&);
+extern int yyparse(std::unique_ptr<BaseAST>&);
 
-static inline void DEBUG_PRINT(const char *s UNUSED)
+static inline void DEBUG_PRINT(const char *s)
 {
-    /**/
-    /*
-    */
-    /*/********/
-    fprintf(stderr, "%s\n", s);
+    std::cerr << s << std::endl;
 }
 
 #endif 

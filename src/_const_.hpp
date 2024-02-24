@@ -6,7 +6,7 @@
 
 #define UNUSED __attribute__((unused))
 
-extern const int MAX_ARGC = 5;
+extern const int MAX_ARGC = 1 << 8;
 extern FILE *yyin;
 
 

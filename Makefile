@@ -95,11 +95,12 @@ $(BUILD_DIR)/%.tab$(FB_EXT): $(SRC_DIR)/%.y
 	mkdir -p $(dir $@)
 	$(BISON) $(BFLAGS) -o $@ $<
 
+# test SysY 
 COMPILER= build/compiler 
 hello.koopa: test/hello.sy
-	$(COMPILER) -koopa $< -o $@
+	$(COMPILER) -koopa -DDEBUG $< -o $@ 
 var_dec.koopa: test/var_dec.sy
-	$(COMPILER) -koopa $< -o $@
+	$(COMPILER) -koopa -DDEBUG $< -o $@ 
 
 
 .PHONY: clean

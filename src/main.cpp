@@ -5,6 +5,7 @@
 #include <iostream>
 #include "_const_.hpp"
 #include "_func_.hpp"
+#include "_ast_.hpp"
 
 // 
 // "//".*
@@ -30,20 +31,25 @@ int main(int argc,
 {
 
     // compiler mode input -o output
-    assert(argc == MAX_ARGC);
+    assert(argc < MAX_ARGC);
     // argv[0] = compiler
     auto mode UNUSED = argv[1];
-    auto input UNUSED = argv[2];
-    // argv[3] = -o 
-    auto output UNUSED = argv[4];
-
+    // argv[2] = -DDEBUG
+    auto input UNUSED = argv[3];
+    // argv[4] = -o 
+    auto output UNUSED = argv[5];
+    
 
     assert(yyin = fopen(input, "r"));
 
-    std::unique_ptr<std::string> ast;
+    std::unique_ptr<BaseAST> ast;
     assert(!yyparse(ast));
+    
+    ast->Print();
+    fprintf(stdout, "\n");
 
-    std::cout << RED_STR(*ast) << std::endl;
+    // mention to {must} callback(after register)
+    fclose(yyin);
 
     return 0;
 }
